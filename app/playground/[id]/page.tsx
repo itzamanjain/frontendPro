@@ -3,9 +3,10 @@ import Playground from "@/components/playground"
 import { useParams } from "next/navigation"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 import { questions } from "@/lib/Question"
 import { useState, useEffect } from "react"
-
 
 interface Question {
   id: string
@@ -18,13 +19,13 @@ interface Question {
     js: string
   }
 }
+
 const Page = () => {
   const { id } = useParams()
-  console.log("checking type 🔥🔥🔥",typeof id);
-  
   const [question, setQuestion] = useState<Question>()
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState("")
+  const [isCollapsed, setIsCollapsed] = useState(false)
 
   useEffect(() => {
     try {
@@ -53,9 +54,13 @@ const Page = () => {
   }
 
   return (
-    <div className="flex justify-center">
-      <div className="w-2/5">
-        <div className="transition-all duration-300 ease-in-out">
+    <div className="flex justify-center relative">
+      <div 
+        className={`transition-all   duration-300 ease-in-out ${
+          isCollapsed ? 'w-0 overflow-hidden' : 'w-2/5'
+        }`}
+      >
+        <div className="pr-4">
           <Card className="cursor-pointer group card-hover-effect">
             <CardHeader className="p-6">
               <CardTitle className="text-xl font-medium leading-tight group-hover:text-primary transition-colors">
@@ -75,7 +80,22 @@ const Page = () => {
           </Card>
         </div>
       </div>
-      <div className="w-3/5 min-h-screen h-full flex-grow">
+      
+      
+
+      <div 
+        className={`transition-all duration-300 ease-in-out ${
+          isCollapsed ? 'w-full' : 'w-3/5'
+        } min-h-screen h-full flex-grow`}
+      > 
+      <Button
+        variant="outline"
+        size="icon"
+        className="absolute left-2/5 top-4 z-10 transform -translate-x-1/2"
+        onClick={() => setIsCollapsed(!isCollapsed)}
+      >
+        {isCollapsed ? <ChevronRight className="h-8 w-8" /> : <ChevronLeft className="h-8 w-8" />}
+      </Button>
         <Playground selectedQuestion={question} />
       </div>
     </div>

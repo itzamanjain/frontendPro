@@ -2,9 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { cobalt2 } from "@codesandbox/sandpack-themes";
-import { Sandpack } from "@codesandbox/sandpack-react"
-import ReactMarkdown from "react-markdown"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Sandpack, SandpackStack } from "@codesandbox/sandpack-react"
 
 interface Question {
   id: string
@@ -97,25 +95,26 @@ export default function Playground({ isFullWidth, selectedQuestion }: Playground
       <div className="flex flex-col lg:flex-row ">
         <div className="w-full  rounded-lg">
           {/* <h2 className="text-2xl font-semibold mb-4">Preview</h2> */}
+         
           <Sandpack
             template="static"
             theme={cobalt2}
-            
             files={{
               "/index.html": htmlCode,
               "/style.css": cssCode,
               "/script.js": jsCode
             }}
+            
             options={{
               showNavigator: false,
               wrapContent:true,
-              // showConsole:true,
               editorWidthPercentage:60,
               showTabs: true,
-              editorHeight: 580,
+              editorHeight: 680,
               showLineNumbers: true
             }}
           />
+         
         </div>
       </div>
   

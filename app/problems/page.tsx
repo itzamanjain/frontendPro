@@ -5,7 +5,7 @@ import { questions } from '@/lib/Question';
 import { useRouter } from 'next/navigation';
 
 interface Problem {
-    id: number;
+    id: string;
     title: string;
     difficulty?: 'Easy' | 'Medium' | 'Hard';
     expectedTime?: string;
@@ -14,31 +14,24 @@ interface Problem {
     tags: string[];
 }
 
-
-
 export default function ProblemsPage() {
     const router = useRouter();
-
     const [selectedDifficulty, setSelectedDifficulty] = useState<string>('all');
     const [searchQuery, setSearchQuery] = useState('');
-
-    const problems: Problem[] = questions
+    const problems: Problem[] = questions;
 
     const getDifficultyColor = (difficulty: string) => {
         switch (difficulty) {
             case 'Easy':
-                return 'text-green-600 bg-green-100';
+                return 'text-green-600 bg-green-100 dark:text-green-400 dark:bg-green-900';
             case 'Medium':
-                return 'text-yellow-600 bg-yellow-100';
+                return 'text-yellow-600 bg-yellow-100 dark:text-yellow-400 dark:bg-yellow-900';
             case 'Hard':
-                return 'text-red-600 bg-red-100';
+                return 'text-red-600 bg-red-100 dark:text-red-400 dark:bg-red-900';
             default:
-                return 'text-gray-600 bg-gray-100';
+                return 'text-gray-600 bg-gray-100 dark:text-gray-400 dark:bg-gray-800';
         }
     };
-
-
-
 
     const filteredProblems = problems.filter((problem) => {
         const matchesDifficulty =
@@ -48,129 +41,110 @@ export default function ProblemsPage() {
             problem.tags.some((tag) => tag.toLowerCase().includes(searchQuery.toLowerCase()));
         return matchesDifficulty && matchesSearch;
     });
-    
-    // on click of a problem open it in playground and show the desc and code editor 
-    const handleProblemClick = (id:Number) => {
-        router.push(`playground/${id}`)
-    }
+
+    const handleProblemClick = (id: Number) => {
+        router.push(`playground/${id}`);
+    };
 
     return (
-        <div className="min-h-screen bg-gray-50" data-oid="j:x.dll">
-            {/* Navbar */}
-            
-
-            <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8" data-oid="k2dzuqm">
+        <div className="min-h-screen bg-black transition-colors duration-200">
+            <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
                 {/* Filters and Search */}
-                <div className="bg-white rounded-lg shadow p-6 mb-6" data-oid="8m6wcfa">
-                    <div
-                        className="flex flex-col md:flex-row md:items-center md:justify-between space-y-4 md:space-y-0"
-                        data-oid="-qcxwt_"
-                    >
-                        <div className="flex space-x-4" data-oid="fa2t6f8">
+                <div className="bg-gray-800 rounded-lg shadow-md p-6 mb-6 transition-colors duration-200">
+                    <div className="flex flex-col md:flex-row md:items-center md:justify-between space-y-4 md:space-y-0">
+                        <div className="flex space-x-4">
                             <button
                                 onClick={() => setSelectedDifficulty('all')}
-                                className={`px-4 py-2 rounded-md ${selectedDifficulty === 'all' ? 'bg-indigo-600 text-white' : 'bg-gray-100'}`}
-                                data-oid="-336r7p"
+                                className={`px-4 py-2 rounded-md transition-colors duration-200 ${
+                                    selectedDifficulty === 'all'
+                                        ? 'bg-indigo-600 text-white dark:bg-indigo-500'
+                                        : 'bg-gray-100 dark:bg-gray-700 dark:text-gray-200'
+                                }`}
                             >
                                 All
                             </button>
                             <button
                                 onClick={() => setSelectedDifficulty('easy')}
-                                className={`px-4 py-2 rounded-md ${selectedDifficulty === 'easy' ? 'bg-green-600 text-white' : 'bg-green-100'}`}
-                                data-oid="0b-6ffp"
+                                className={`px-4 py-2 rounded-md transition-colors duration-200 ${
+                                    selectedDifficulty === 'easy'
+                                        ? 'bg-green-600 text-white dark:bg-green-500'
+                                        : 'bg-green-100 dark:bg-green-900 dark:text-green-200'
+                                }`}
                             >
                                 Easy
                             </button>
                             <button
                                 onClick={() => setSelectedDifficulty('medium')}
-                                className={`px-4 py-2 rounded-md ${selectedDifficulty === 'medium' ? 'bg-yellow-600 text-white' : 'bg-yellow-100'}`}
-                                data-oid="nivwrry"
+                                className={`px-4 py-2 rounded-md transition-colors duration-200 ${
+                                    selectedDifficulty === 'medium'
+                                        ? 'bg-yellow-600 text-white dark:bg-yellow-500'
+                                        : 'bg-yellow-100 dark:bg-yellow-900 dark:text-yellow-200'
+                                }`}
                             >
                                 Medium
                             </button>
                             <button
                                 onClick={() => setSelectedDifficulty('hard')}
-                                className={`px-4 py-2 rounded-md ${selectedDifficulty === 'hard' ? 'bg-red-600 text-white' : 'bg-red-100'}`}
-                                data-oid="q41s_ja"
+                                className={`px-4 py-2 rounded-md transition-colors duration-200 ${
+                                    selectedDifficulty === 'hard'
+                                        ? 'bg-red-600 text-white dark:bg-red-500'
+                                        : 'bg-red-100 dark:bg-red-900 dark:text-red-200'
+                                }`}
                             >
                                 Hard
                             </button>
                         </div>
-                        <div className="relative" data-oid="cdt-i5o">
+                        <div className="relative">
                             <input
                                 type="text"
                                 placeholder="Search problems..."
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
-                                className="w-full md:w-64 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                                data-oid="ur_hqqn"
+                                className="w-full md:w-64 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400 transition-colors duration-200"
                             />
                         </div>
                     </div>
                 </div>
 
                 {/* Problems List */}
-                <div className="bg-white rounded-lg shadow overflow-hidden" data-oid="iht7rt.">
-                    <table className="min-w-full divide-y divide-gray-200" data-oid="mdwwrzb">
-                        <thead className="bg-gray-50" data-oid="bj_qjnp">
-                            <tr data-oid="y9zqtu4">
-                                <th
-                                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                                    data-oid="3f5zm67"
-                                >
+                <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transition-colors duration-200">
+                    <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                        <thead className="bg-gray-50 dark:bg-gray-900">
+                            <tr>
+                                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                                     Problem
                                 </th>
-                                <th
-                                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                                    data-oid="ksxwsg-"
-                                >
+                                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                                     Difficulty
                                 </th>
-                                <th
-                                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                                    data-oid="vbvozp2"
-                                >
+                                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                                     Expected Time
                                 </th>
-                                <th
-                                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                                    data-oid="hv6x6x2"
-                                >
+                                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                                     Submissions
                                 </th>
-                                <th
-                                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                                    data-oid="kbgdrgn"
-                                >
+                                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                                     Success Rate
                                 </th>
                             </tr>
                         </thead>
-                        <tbody className="bg-white divide-y divide-gray-200" data-oid="ljys6_l">
+                        <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
                             {filteredProblems.map((problem) => (
                                 <tr
                                     key={problem.id}
-                                    className="hover:bg-gray-50  cursor-pointer"
-                                    data-oid="d21pi9h"
+                                    className="hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer transition-colors duration-200"
                                     onClick={() => handleProblemClick(problem.id)}
                                 >
-                                    <td className="px-6  py-4" data-oid="xxr_ail">
-                                        <div data-oid="lavcq-5">
-                                            <div
-                                                className="text-sm font-medium text-gray-900"
-                                                data-oid="mkiwm-7"
-                                            >
+                                    <td className="px-6 py-4">
+                                        <div>
+                                            <div className="text-sm font-medium text-gray-900 dark:text-white">
                                                 {problem.title}
                                             </div>
-                                            <div
-                                                className="flex flex-wrap gap-2 mt-1"
-                                                data-oid="h3cbwo8"
-                                            >
+                                            <div className="flex flex-wrap gap-2 mt-1">
                                                 {problem.tags.map((tag, index) => (
                                                     <span
                                                         key={index}
-                                                        className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-indigo-100 text-indigo-800"
-                                                        data-oid="j7qt0z:"
+                                                        className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200"
                                                     >
                                                         {tag}
                                                     </span>
@@ -178,42 +152,30 @@ export default function ProblemsPage() {
                                             </div>
                                         </div>
                                     </td>
-                                    <td className="px-6 py-4" data-oid="rjip9je">
+                                    <td className="px-6 py-4">
                                         <span
-                                            className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getDifficultyColor(problem.difficulty ?? '')}`}
-                                            data-oid="a_1msa_"
+                                            className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getDifficultyColor(
+                                                problem.difficulty ?? ''
+                                            )}`}
                                         >
                                             {problem.difficulty}
                                         </span>
                                     </td>
-                                    <td
-                                        className="px-6 py-4 text-sm text-gray-500"
-                                        data-oid="4siago2"
-                                    >
+                                    <td className="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">
                                         {problem.expectedTime}
                                     </td>
-                                    <td
-                                        className="px-6 py-4 text-sm text-gray-500"
-                                        data-oid="mzbm84d"
-                                    >
+                                    <td className="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">
                                         {(problem.submissions ?? 0).toLocaleString()}
                                     </td>
-                                    <td className="px-6 py-4" data-oid="vkq48ig">
-                                        <div className="flex items-center" data-oid="vdym-h8">
-                                            <span
-                                                className="text-sm text-gray-500"
-                                                data-oid="8ooim2q"
-                                            >
+                                    <td className="px-6 py-4">
+                                        <div className="flex items-center">
+                                            <span className="text-sm text-gray-500 dark:text-gray-400">
                                                 {problem.successRate}%
                                             </span>
-                                            <div
-                                                className="ml-2 w-16 h-2 bg-gray-200 rounded-full"
-                                                data-oid="fahuy29"
-                                            >
+                                            <div className="ml-2 w-16 h-2 bg-gray-200 dark:bg-gray-700 rounded-full">
                                                 <div
-                                                    className="h-full bg-green-500 rounded-full"
+                                                    className="h-full bg-green-500 dark:bg-green-400 rounded-full transition-all duration-200"
                                                     style={{ width: `${problem.successRate}%` }}
-                                                    data-oid="mcte5_y"
                                                 />
                                             </div>
                                         </div>

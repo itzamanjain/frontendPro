@@ -119,7 +119,7 @@ export const questions = [
       }
     },
     {
-      id: 2,
+      id: "2",
       title: "Implement a modal dialog",
       content: `
   # Implement a Modal Dialog
@@ -223,7 +223,7 @@ export const questions = [
       }
     },
     {
-      id: 3,
+      id: "3",
       title: "Build an Image Carousel",
       content: `
   # Build an Image Carousel
@@ -374,7 +374,7 @@ export const questions = [
       }
     },
     {
-      id: 4,
+      id: "4",
       title: "Create a Todo List App",
       content: `
   # Create a Todo List App
@@ -575,7 +575,7 @@ export const questions = [
       }
     },
     {
-        id: 5,
+        id: "5",
         title: "Create a  cafe website",
         content: `
     # Create a Responsive Navbar

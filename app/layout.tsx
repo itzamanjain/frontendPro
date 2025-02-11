@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
 import Navbar from '@/components/Navbar'
+import Footer from '@/components/component/Landing/Footer'
 
 export const metadata: Metadata = {
   title: 'FrontEnd Pro',
@@ -15,10 +16,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className='bg-black'>
         <ThemeProvider>
           <Navbar />
           {children}
+          <Footer />
         </ThemeProvider>    
         </body>
     </html>

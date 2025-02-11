@@ -10,7 +10,7 @@ const Navbar = () => {
         <nav className="bg-black shadow-lg px-6 py-4">
             <div className="max-w-7xl mx-auto flex items-center justify-between">
                 {/* Logo section */}
-                <Link href="/" className="text-2xl font-bold text-indigo-600 flex-shrink-0">
+                <Link href="/" className="text-2xl font-bold text-indigo-300 flex-shrink-0">
                     FrontendPro
                 </Link>
 
@@ -19,19 +19,19 @@ const Navbar = () => {
                     <div className="space-x-8">
                         <Link
                             href="/problems"
-                            className="text-white hover:text-indigo-600 text-sm font-medium transition-colors duration-200"
+                            className="text-white hover:text-indigo-300 text-sm font-medium transition-colors duration-200"
                         >
                             Problems
                         </Link>
                         <Link
                             href="/learn"
-                            className="text-white hover:text-indigo-600 text-sm font-medium transition-colors duration-200"
+                            className="text-white hover:text-indigo-300 text-sm font-medium transition-colors duration-200"
                         >
                             Learn
                         </Link>
                         <Link
                             href="/discussion"
-                            className="text-white hover:text-indigo-600 text-sm font-medium transition-colors duration-200"
+                            className="text-white hover:text-indigo-300 text-sm font-medium transition-colors duration-200"
                         >
                             Discussion
                         </Link>

@@ -50,10 +50,10 @@ export default function LearnPage() {
     const categories = ['All', 'Frontend Basics', 'JavaScript', 'Frameworks', 'Backend'];
 
     return (
-        <div className="min-h-screen bg-gray-50" data-oid="1r_bqj_">
+        <div className="min-h-screen bg-gray-950" data-oid="1r_bqj_">
             <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8" data-oid="o9otyhk">
                 <div className="flex justify-between items-center mb-8" data-oid="tm3svuu">
-                    <h1 className="text-3xl font-bold text-gray-900" data-oid="xjxmaue">
+                    <h1 className="text-3xl font-bold text-white" data-oid="xjxmaue">
                         Learning Paths
                     </h1>
                     <div className="flex space-x-4" data-oid="s_y730x">

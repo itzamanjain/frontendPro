@@ -55,12 +55,12 @@ export default function DiscussionPage() {
     ];
 
     return (
-        <div className="min-h-screen bg-gray-50" data-oid="c0rxxb8">
+        <div className="min-h-screen bg-gray-950" data-oid="c0rxxb8">
             
 
             <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8" data-oid="j_qzobs">
                 <div className="flex justify-between items-center mb-6" data-oid="5pqimpo">
-                    <h1 className="text-3xl font-bold text-gray-900" data-oid="lcsc33v">
+                    <h1 className="text-3xl font-bold text-white" data-oid="lcsc33v">
                         Discussion Forum
                     </h1>
                     <button

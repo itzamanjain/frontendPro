@@ -3,6 +3,7 @@ export const questions = [
       id: "1",
       title: "Create a responsive navbar",
       successRate:84,
+      sampleUrl: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tutorialrepublic.com%2Fsnippets%2Fpreview.php%3Ftopic%3Dbootstrap%26file%3Dbeautiful-navbar-with-menu-icons&psig=AOvVaw2altFRbn2fxQyBdEN4tj_b&ust=1739541805029000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCIiZl7TowIsDFQAAAAAdAAAAABAJ",
       content: `
   # Create a Responsive Navbar
   

@@ -107,7 +107,7 @@ export default function ProblemsPage() {
                 </div>
 
                 {/* Problems List */}
-                <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transition-colors duration-200">
+                <div className="bg-gray-100 dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transition-colors duration-200">
                     <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                         <thead className="bg-gray-50 dark:bg-gray-900">
                             <tr>

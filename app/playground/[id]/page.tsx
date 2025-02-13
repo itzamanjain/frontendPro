@@ -7,11 +7,13 @@ import { Button } from "@/components/ui/button"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { questions } from "@/lib/Question"
 import { useState, useEffect } from "react"
+import Image from "next/image"
 
 interface Question {
   id: string
   title: string
   content: string
+  sampleUrl?:string
   tags: string[]
   initialCode: {
     html: string
@@ -60,16 +62,17 @@ const Page = () => {
           isCollapsed ? 'w-0 overflow-hidden' : 'w-2/5'
         }`}
       >
-        <div className="pr-4">
-          <Card className="cursor-pointer group card-hover-effect">
+        <div className=" border-none  ">
+          <Card className="cursor-pointer group border-none overflow-auto max-h-[680px] bg-gray-900 text-gray-50 card-hover-effect">
             <CardHeader className="p-6">
-              <CardTitle className="text-xl font-medium leading-tight group-hover:text-primary transition-colors">
+              <CardTitle className="text-xl text-white font-medium leading-tight  transition-colors">
                 {question.title}
               </CardTitle>
             </CardHeader>
             <CardContent className="px-6 pb-6">
-              <pre className="text-muted-foreground mb-4 whitespace-pre-wrap">{question.content}</pre>
-              <div className="flex flex-wrap gap-2">
+              <pre className="text-muted-foreground text-sm text-gray-100 mb-4 whitespace-pre-wrap">{question.content}</pre>
+              <Image height={200} width={500} alt="sample output" src="/dashboard.png" />
+              <div className="flex flex-wrap mt-4 gap-2">
                 {question.tags?.map((tag) => (
                   <Badge key={tag} variant="secondary" className="text-xs font-medium px-2.5 py-0.5 bg-secondary/50">
                     {tag}

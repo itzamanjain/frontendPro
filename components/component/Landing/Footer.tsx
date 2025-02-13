@@ -132,7 +132,7 @@ export default function Footer() {
         </div>
         <div className=" w-full flex mt-4 items-center justify-center   ">
           <h1 className="text-center text-3xl md:text-5xl lg:text-[10rem] font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-700 to-neutral-900 select-none">
-            FRONTEND PRO
+            CODE FRONT
           </h1>
         </div>
       </div>

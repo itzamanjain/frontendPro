@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 interface Problem {
     id: string;
     title: string;
-    difficulty?: 'Easy' | 'Medium' | 'Hard';
+    difficulty?: string;
     expectedTime?: string;
     submissions?: number;
     successRate?: number;
@@ -42,7 +42,7 @@ export default function ProblemsPage() {
         return matchesDifficulty && matchesSearch;
     });
 
-    const handleProblemClick = (id: Number) => {
+    const handleProblemClick = (id: string) => {
         router.push(`playground/${id}`);
     };
 
@@ -50,7 +50,7 @@ export default function ProblemsPage() {
         <div className="min-h-screen bg-black transition-colors duration-200">
             <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
                 {/* Filters and Search */}
-                <div className="bg-gray-800 rounded-lg shadow-md p-6 mb-6 transition-colors duration-200">
+                <div className="bg-black rounded-lg shadow-md p-6 mb-6 transition-colors duration-200">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between space-y-4 md:space-y-0">
                         <div className="flex space-x-4">
                             <button

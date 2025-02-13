@@ -6,9 +6,9 @@ function HeroContent() {
     <>
       <div className="">
         <HeroGeometric
-          badge="Follw Me on X"
-          title1="Your All in One"
-          title2="Coding Companion"
+          badge="Built for Developers"
+          title1="Level Up"
+          title2="Your Frontend Skills"
         />
       </div>
     </>
@@ -16,3 +16,4 @@ function HeroContent() {
 }
 
 export { HeroContent };
+

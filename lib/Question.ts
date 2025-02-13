@@ -2,6 +2,7 @@ export const questions = [
     {
       id: "1",
       title: "Create a responsive navbar",
+      successRate:84,
       content: `
   # Create a Responsive Navbar
   
@@ -121,6 +122,10 @@ export const questions = [
     {
       id: "2",
       title: "Implement a modal dialog",
+      difficulty: 'Easy',
+      successRate:49,
+      expectedTime: '15 min',
+      submissions:401,
       content: `
   # Implement a Modal Dialog
   
@@ -225,6 +230,10 @@ export const questions = [
     {
       id: "3",
       title: "Build an Image Carousel",
+      difficulty: 'Hard',
+      expectedTime: '20 min',
+      successRate:45,
+      submissions:105,
       content: `
   # Build an Image Carousel
   
@@ -376,6 +385,10 @@ export const questions = [
     {
       id: "4",
       title: "Create a Todo List App",
+      difficulty: 'Medium',
+      successRate:90,
+      expectedTime: '25 min',
+      submissions:568,
       content: `
   # Create a Todo List App
   
@@ -577,6 +590,10 @@ export const questions = [
     {
         id: "5",
         title: "Create a  cafe website",
+        difficulty: 'Medium',
+         expectedTime: '30 min',
+         successRate:76,
+        submissions:231,
         content: `
     # Create a Responsive Navbar
     

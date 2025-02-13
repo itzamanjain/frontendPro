@@ -3,86 +3,98 @@ import { Testimonials } from "../ui/testimonials"
 const testimonials = [
   {
     image: 'https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    text: 'I\'m blown away by the versatility of the components in this library. They make UI development a breeze!',
+    text: 'CodeFront helped me ace my frontend interviews at FAANG! The machine coding problems are exactly what I encountered in real interviews.',
     name: 'Alice Johnson',
     username: '@alicejohnson',
+    position: 'Frontend Engineer at Google',
     social: 'https://i.imgur.com/VRtqhGC.png'
   },
   {
     image: 'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    text: 'Using this component library has significantly speed up our development process. The quality and ease of integration are remarkable!',
+    text: 'The timed challenges and real-time feedback helped me improve my problem-solving speed. Cracked my dream frontend role!',
     name: 'David Smith',
     username: '@davidsmith',
+    position: 'Senior UI Developer at Meta',
     social: 'https://i.imgur.com/VRtqhGC.png'
   },
   {
     image: 'https://i.imgur.com/kaDy9hV.jpeg',
-    text: 'The components in this library are not just well-designed but also highly customizable. It\'s a developer\'s dream!',
+    text: 'Best platform for practicing machine coding rounds. The variety of UI challenges really helped me understand different patterns.',
     name: 'Emma Brown',
     username: '@emmabrown',
+    position: 'Frontend Lead at Stripe',
     social: 'https://i.imgur.com/VRtqhGC.png'
   },
   {
     image: 'https://i.imgur.com/cRwFxtE.png',
-    text: 'I love  how intuitive and well-documented this component library is. It has significantly improved our UI consistency across projects.',
+    text: 'The interactive editor and live preview feature is a game-changer. It feels just like a real interview environment!',
     name: 'James Wilson',
     username: '@jameswilson',
+    position: 'UI Engineer at Netflix',
     social: 'https://i.imgur.com/VRtqhGC.png'
   },
   {
     image: 'https://i.imgur.com/TQIqsob.png',
-    text: 'Implementing this component library was a game-changer for our team. It has elevated our product\'s UI to a whole new level!',
+    text: 'From component design to state management, CodeFront covers everything you need for frontend interviews. Highly recommended!',
     name: 'Sophia Lee',
     username: '@sophialee',
+    position: 'Frontend Dev at Amazon',
     social: 'https://i.imgur.com/VRtqhGC.png'
   },
   {
     image: 'https://i.imgur.com/3ROmJ0S.png',
-    text: 'Using this library has been a game-changer for our product development.',
+    text: 'The community solutions and discussions helped me learn different approaches to the same problem. Invaluable resource!',
     name: 'Michael Davis',
     username: '@michaeldavis',
+    position: 'React Developer at Airbnb',
     social: 'https://i.imgur.com/VRtqhGC.png'
   },
   {
     image: 'https://i.imgur.com/6fKCuVC.png',
-    text: 'The components are highly responsive and work seamlessly across different devices and screen sizes.',
+    text: 'Practice problems are perfectly curated for frontend roles. Helped me understand what companies really look for.',
     name: 'Emily Chen',
     username: '@emilychen',
+    position: 'UI Engineer at Microsoft',
     social: 'https://i.imgur.com/VRtqhGC.png'
   },
   {
     image: 'https://i.imgur.com/Jjqe7St.png',
-    text: 'I love how easy it is to customize the components  to fit our brand\'s style. The design is clean and modern.',
+    text: 'The structured learning path and progress tracking kept me motivated throughout my interview prep journey.',
     name: 'Robert Lee',
     username: '@robertlee',
+    position: 'Frontend Architect at Uber',
     social: 'https://i.imgur.com/VRtqhGC.png'
   },
   {
     image: 'https://i.imgur.com/bG88vHI.png',
-    text: 'This library has saved us a significant amount of time and effort. The components are well-documented and easy to integrate.',
+    text: 'From basic components to complex UI patterns, CodeFront has everything you need to master frontend interviews.',
     name: 'Sarah Taylor',
     username: '@sarahtaylor',
+    position: 'UI Developer at LinkedIn',
     social: 'https://i.imgur.com/VRtqhGC.png'
   },
   {
     image: 'https://i.imgur.com/tjmS77j.png',
-    text: 'I appreciate the attention to detail in the design. The components are visually appealing and professional.',
+    text: 'The detailed explanations and best practices shared in solutions helped me understand the why behind each implementation.',
     name: 'Kevin White',
     username: '@kevinwhite',
+    position: 'Frontend Lead at Twitter',
     social: 'https://i.imgur.com/VRtqhGC.png'
   },
   {
     image: 'https://i.imgur.com/yTsomza.png',
-    text: 'The components are highly customizable and can be easily integrated with our existing UI framework.',
+    text: 'Perfect platform for frontend interview prep! The challenges mirror real interview questions from top tech companies.',
     name: 'Rachel Patel',
     username: '@rachelpatel',
+    position: 'UI Engineer at Apple',
     social: 'https://i.imgur.com/VRtqhGC.png'
   },
   {
     image: 'https://i.imgur.com/pnsLqpq.png',
-    text: 'I love how the components are designed to be highly responsive and work well across different screen sizes.',
+    text: 'The focus on machine coding rounds really sets CodeFront apart. Essential practice for any frontend developer.',
     name: 'Brian Kim',
     username: '@briankim',
+    position: 'Frontend Dev at Spotify',
     social: 'https://i.imgur.com/VRtqhGC.png'
   }
 ];

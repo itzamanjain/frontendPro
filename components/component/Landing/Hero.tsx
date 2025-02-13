@@ -186,7 +186,7 @@ function HeroGeometric({
             animate="visible"
           >
             <p className="text-base sm:text-lg md:text-xl text-white/40 mb-8 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-4">
-            Practice Frontend Design and Build Interactive UI Challenges
+            Build Complex UIs, Learn Modern Frontend Patterns & Ace Your Next Frontend Interview
                </p>
           </motion.div>
         </div>

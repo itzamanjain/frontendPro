@@ -27,7 +27,7 @@ export function Testimonials({
   testimonials,
   className,
   title = "Read what people are saying",
-  description = "Dummy feedback from virtual customers using our component library.",
+  description = "Developer are loving codefront more than any others ",
   maxDisplayed = 6,
 }: TestimonialsProps) {
   const [showAll, setShowAll] = useState(false);
@@ -101,17 +101,6 @@ export function Testimonials({
               </Card>
             ))}
         </div>
-
-        {testimonials.length > maxDisplayed && !showAll && (
-          <>
-            <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-black/20 to-transparent" />
-            <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20">
-              <Button variant="default" onClick={() => setShowAll(true)}>
-                Load More
-              </Button>
-            </div>
-          </>
-        )}
       </div>
     </div>
   );

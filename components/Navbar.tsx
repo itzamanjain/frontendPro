@@ -11,7 +11,7 @@ const Navbar = () => {
             <div className="max-w-7xl mx-auto flex items-center justify-between">
                 {/* Logo section */}
                 <Link href="/" className="text-2xl font-bold text-indigo-300 flex-shrink-0">
-                    FrontendPro
+                    Codefront
                 </Link>
 
                 {/* Navigation Links - Centered */}

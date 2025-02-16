@@ -55,41 +55,37 @@ export default function ProblemsPage() {
                         <div className="flex space-x-4">
                             <button
                                 onClick={() => setSelectedDifficulty('all')}
-                                className={`px-4 py-2 rounded-md transition-colors duration-200 ${
-                                    selectedDifficulty === 'all'
+                                className={`px-4 py-2 rounded-md transition-colors duration-200 ${selectedDifficulty === 'all'
                                         ? 'bg-indigo-600 text-white dark:bg-indigo-500'
                                         : 'bg-gray-100 dark:bg-gray-700 dark:text-gray-200'
-                                }`}
+                                    }`}
                             >
                                 All
                             </button>
                             <button
                                 onClick={() => setSelectedDifficulty('easy')}
-                                className={`px-4 py-2 rounded-md transition-colors duration-200 ${
-                                    selectedDifficulty === 'easy'
+                                className={`px-4 py-2 rounded-md transition-colors duration-200 ${selectedDifficulty === 'easy'
                                         ? 'bg-green-600 text-white dark:bg-green-500'
                                         : 'bg-green-100 dark:bg-green-900 dark:text-green-200'
-                                }`}
+                                    }`}
                             >
                                 Easy
                             </button>
                             <button
                                 onClick={() => setSelectedDifficulty('medium')}
-                                className={`px-4 py-2 rounded-md transition-colors duration-200 ${
-                                    selectedDifficulty === 'medium'
+                                className={`px-4 py-2 rounded-md transition-colors duration-200 ${selectedDifficulty === 'medium'
                                         ? 'bg-yellow-600 text-white dark:bg-yellow-500'
                                         : 'bg-yellow-100 dark:bg-yellow-900 dark:text-yellow-200'
-                                }`}
+                                    }`}
                             >
                                 Medium
                             </button>
                             <button
                                 onClick={() => setSelectedDifficulty('hard')}
-                                className={`px-4 py-2 rounded-md transition-colors duration-200 ${
-                                    selectedDifficulty === 'hard'
+                                className={`px-4 py-2 rounded-md transition-colors duration-200 ${selectedDifficulty === 'hard'
                                         ? 'bg-red-600 text-white dark:bg-red-500'
                                         : 'bg-red-100 dark:bg-red-900 dark:text-red-200'
-                                }`}
+                                    }`}
                             >
                                 Hard
                             </button>
@@ -133,13 +129,13 @@ export default function ProblemsPage() {
                                 <tr
                                     key={problem.id}
                                     className="hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer transition-colors duration-200"
-                                    onClick={() => handleProblemClick(problem.id)}
+                                    // onClick={() => handleProblemClick(problem.id)}
                                 >
                                     <td className="px-6 py-4">
                                         <div>
-                                            <div className="text-sm font-medium text-gray-900 dark:text-white">
+                                            <a href={`/playground/${problem.id}`} className="block text-sm font-medium text-gray-900 dark:text-white">
                                                 {problem.title}
-                                            </div>
+                                            </a>
                                             <div className="flex flex-wrap gap-2 mt-1">
                                                 {problem.tags.map((tag, index) => (
                                                     <span

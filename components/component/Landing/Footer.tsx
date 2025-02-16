@@ -11,7 +11,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between">
           <div className="mb-8 md:mb-0">
             <Link href="/" className="flex items-center gap-2">
-              <h2 className="text-lg font-bold">Frontend Pro</h2>
+              <h2 className="text-lg font-bold">Codefront</h2>
             </Link>
 
             <h1 className="text-gray-300 mt-4">

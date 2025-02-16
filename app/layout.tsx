@@ -5,7 +5,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/component/Landing/Footer'
 
 export const metadata: Metadata = {
-  title: 'FrontEnd Pro',
+  title: 'Codefront',
   description: 'Created with ❤️',
 }
 

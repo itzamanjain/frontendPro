@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { cobalt2 } from "@codesandbox/sandpack-themes";
+import { atomDark } from "@codesandbox/sandpack-themes";
 import { Sandpack, SandpackStack } from "@codesandbox/sandpack-react"
 
 interface Question {
@@ -93,13 +93,14 @@ export default function Playground({ isFullWidth, selectedQuestion }: Playground
 
   return (
     
-      <div className="flex flex-col lg:flex-row ">
-        <div className="w-full  rounded-lg">
+      <div className="flex flex-col rounded-none lg:flex-row ">
+        <div className="w-full rounded-none">
           {/* <h2 className="text-2xl font-semibold mb-4">Preview</h2> */}
          
           <Sandpack
             template="static"
-            theme={cobalt2}
+            theme={atomDark}
+            
             files={{
               "/index.html": htmlCode,
               "/style.css": cssCode,
@@ -111,7 +112,8 @@ export default function Playground({ isFullWidth, selectedQuestion }: Playground
               wrapContent:true,
               editorWidthPercentage:60,
               showTabs: true,
-              editorHeight: 680,
+              
+              editorHeight: "100vh",
               showLineNumbers: true
             }}
           />

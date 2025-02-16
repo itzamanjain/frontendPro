@@ -1,11 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { Clock, EyeOff, Eye, PlayCircle, PauseCircle } from "lucide-react";
+import { Clock, EyeOff, Eye, PlayCircle, PauseCircle, MessageSquare, ThumbsUp } from "lucide-react";
 
 interface Question {
   id: string;
@@ -15,6 +15,9 @@ interface Question {
   tags: string[];
   successRate?: number;
   difficulty?: string;
+  onlineUsers?: string;
+  upvotes?: string;
+  comments?: string;
   expectedTime?: string;
   submissions?: number;
 }
@@ -23,19 +26,40 @@ const QuestionCard = ({ question }: { question: Question }) => {
   const [timerRunning, setTimerRunning] = useState(false);
   const [timeLeft, setTimeLeft] = useState(20 * 60); // 20 minutes in seconds
   const [showHints, setShowHints] = useState(false);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    // Cleanup function to clear interval when component unmounts
+    return () => {
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+      }
+    };
+  }, []);
 
   const startTimer = () => {
-    setTimerRunning(true);
-    const timer = setInterval(() => {
-      setTimeLeft((prevTime) => {
-        if (prevTime <= 1) {
-          clearInterval(timer);
-          setTimerRunning(false);
-          return 0;
-        }
-        return prevTime - 1;
-      });
-    }, 1000);
+    if (timerRunning) {
+      // Stop the timer
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+        timerRef.current = null;
+      }
+    } else {
+      // Start the timer
+      timerRef.current = setInterval(() => {
+        setTimeLeft((prevTime) => {
+          if (prevTime <= 1) {
+            if (timerRef.current) {
+              clearInterval(timerRef.current);
+            }
+            setTimerRunning(false);
+            return 0;
+          }
+          return prevTime - 1;
+        });
+      }, 1000);
+    }
+    setTimerRunning(!timerRunning);
   };
 
   const formatTime = (seconds: number) => {
@@ -44,55 +68,84 @@ const QuestionCard = ({ question }: { question: Question }) => {
     return `${minutes.toString().padStart(2, "0")}:${remainingSeconds.toString().padStart(2, "0")}`;
   };
 
+  // Reset timer when it reaches 0
+  useEffect(() => {
+    if (timeLeft === 0) {
+      setTimerRunning(false);
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+      }
+    }
+  }, [timeLeft]);
+
   return (
-    <Card className="h-[680px] bg-[#193549] border-none  text-gray-50 rounded-none flex flex-col">
-      <CardHeader className="p-4 z-10 flex flex-row justify-between items-center flex-shrink-0">
-        <div className="">
-          <CardTitle className="text-xl font-normal font-serif  text-white">{question.title}</CardTitle>
-          <div className="flex items-center space-x-2 mt-2">
-            <Badge className="bg-green-600 font-normal text-white px-2.5 py-0.5">{question.difficulty}</Badge>
-            <Badge className="bg-yellow-600 font-medium text-white px-2.5 py-0.5">Success Rate: {question.successRate}%</Badge>
+    <Card className="h-[100vh] bg-[#262626] border-none text-gray-50 rounded-none flex flex-col">
+      <CardHeader className="p-4 border-b border-gray-700">
+        <div className="flex justify-between items-start">
+          <div className="space-y-2">
+            <div className="flex items-center gap-2">
+              <span className="text-gray-400">#{question.id}.</span>
+              <CardTitle className="text-xl font-normal">{question.title}</CardTitle>
+            </div>
+            <div className="flex items-center gap-2">
+              <Badge variant="secondary" className="bg-yellow-600/20 text-yellow-400 hover:bg-yellow-600/30">
+                {question.difficulty}
+              </Badge>
+              <div className="flex items-center gap-4 text-sm text-gray-400">
+                <div className="flex items-center gap-1">
+                  <ThumbsUp className="w-4 h-4" />
+                  <span>{question.upvotes || "39"}</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <MessageSquare className="w-4 h-4" />
+                  <span>{question.comments || "55"}</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <span className="w-2 h-2 rounded-full bg-green-500" />
+                  <span>{question.onlineUsers || "45"} Online</span>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div className="flex mr-6 items-center space-x-2">
-          <Button size="sm" onClick={startTimer} disabled={timerRunning} className="text-blue-400 border-none">
-            {timerRunning ? <PauseCircle /> : <PlayCircle />}
-            <span className="text-sm text-blue-400 font-medium">
-              {timerRunning ? formatTime(timeLeft) : "20:00"} {timerRunning ? "Remaining" : "Start"}
+          <Button
+            size="sm"
+            onClick={startTimer}
+            className="bg-blue-500/20 mr-4 text-blue-400 hover:bg-blue-500/30 border-none"
+          >
+            {timerRunning ? <PauseCircle className="mr-2 h-4 w-4" /> : <PlayCircle className="mr-2 h-4 w-4" />}
+            <span className="text-sm font-medium">
+              {formatTime(timeLeft)} {timerRunning ? "Remaining" : "Start"}
             </span>
           </Button>
         </div>
       </CardHeader>
-      <CardContent className="space-y-4 overflow-y-auto flex-grow">
-      
-        <pre className="text-md text-gray-300 whitespace-pre-wrap">{question.content}</pre>
-        <h2>Sample Output</h2>
-        <Image height={300} width={600} alt="sample output" src={question.sampleUrl} className="rounded-lg shadow-md" />
-        <div className="flex flex-wrap gap-2">
-          {question.tags?.map((tag) => (
-            <Badge key={tag} variant="secondary" className="bg-blue-600 font-normal text-white px-2.5 py-0.5">
-              {tag}
-            </Badge>
-          ))}
+      <CardContent className="p-6 overflow-auto space-y-6">
+        <div className="prose prose-invert max-w-none">
+          <div className="whitespace-pre-wrap text-gray-300">{question.content}</div>
+          <h2 className="mb-2">Sample Output</h2>
+          <Image height={300} width={600} alt="sample output" src={question.sampleUrl} className="rounded-lg shadow-md" />
         </div>
-        <div className="flex justify-between items-center text-sm text-gray-400 mt-4">
-          <span>Expected Time: <span className="text-white font-medium">{question.expectedTime}</span></span>
-          <span>Submissions: <span className="text-white font-medium">{question.submissions}</span></span>
+        <div className="space-y-4">
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => setShowHints(!showHints)}
+            className="bg-transparent border-gray-600 text-gray-300 hover:bg-gray-700"
+          >
+            {showHints ? <Eye className="mr-2 h-4 w-4" /> : <EyeOff className="mr-2 h-4 w-4" />}
+            {showHints ? "Hide Hints" : "Show Hints"}
+          </Button>
+          {showHints && (
+            <div className="p-4 bg-gray-700/30 rounded-lg text-gray-300">
+              <h3 className="font-medium mb-2">Hints:</h3>
+              <ul className="list-disc list-inside space-y-1 text-sm">
+                <li>Consider using backtracking to generate all possible sequences</li>
+                <li>Start with the largest possible numbers to get lexicographically largest sequence</li>
+                <li>Keep track of used numbers and their positions to validate distance constraints</li>
+              </ul>
+            </div>
+          )}
         </div>
-        <Button variant="outline" size="sm" onClick={() => setShowHints(!showHints)} className="text-black">
-          {showHints ? <Eye className="mr-2 h-4 w-4" /> : <EyeOff className="mr-2 h-4 w-4" />}
-          {showHints ? "Hide Hints" : "Show Hints"}
-        </Button>
-        {showHints && (
-          <div className="p-4 text-gray-300">
-            <h3 className="font-bold mb-2">Hints:</h3>
-            <ul className="list-disc list-inside space-y-1">
-              <li>Practice, practice, practice</li>
-              <li>Break down the problem into smaller steps</li>
-              <li>Consider edge cases in your solution</li>
-            </ul>
-          </div>
-        )}
       </CardContent>
     </Card>
   );

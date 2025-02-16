@@ -14,7 +14,7 @@ interface Question {
   id: string
   title: string
   content: string
-  sampleUrl?:string
+  sampleUrl:string
   tags: string[]
   initialCode: {
     html: string

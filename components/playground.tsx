@@ -8,6 +8,7 @@ interface Question {
   id: string
   title: string
   content: string
+  sampleUrl:string
   tags: string[]
   initialCode: {
     html: string
@@ -74,21 +75,21 @@ const defaultJsCode = `document.getElementById('colorButton').addEventListener('
 });`
 
 export default function Playground({ isFullWidth, selectedQuestion }: PlaygroundProps) {
-  const [htmlCode, setHtmlCode] = useState(selectedQuestion?.initialCode.html || defaultHtmlCode)
-  const [cssCode, setCssCode] = useState(selectedQuestion?.initialCode.css || defaultCssCode)
-  const [jsCode, setJsCode] = useState(selectedQuestion?.initialCode.js || defaultJsCode)
+  const [htmlCode, setHtmlCode] = useState(defaultHtmlCode)
+  const [cssCode, setCssCode] = useState(defaultCssCode)
+  const [jsCode, setJsCode] = useState(defaultJsCode)
   // const [questionContent, setQuestionContent] = useState(selectedQuestion?.content || "")
 
-  useEffect(() => {
-    if (selectedQuestion) {
-      setHtmlCode(selectedQuestion?.initialCode.html)
-      setCssCode(selectedQuestion?.initialCode.css)
-      setJsCode(selectedQuestion?.initialCode.js)
-      // setQuestionContent(selectedQuestion?.content)
-      console.log("selected question code ",htmlCode,cssCode,jsCode);
+  // useEffect(() => {
+  //   if (selectedQuestion) {
+  //     setHtmlCode(selectedQuestion?.initialCode.html)
+  //     setCssCode(selectedQuestion?.initialCode.css)
+  //     setJsCode(selectedQuestion?.initialCode.js)
+  //     // setQuestionContent(selectedQuestion?.content)
+  //     console.log("selected question code ",htmlCode,cssCode,jsCode);
       
-    }
-  }, [selectedQuestion])
+  //   }
+  // }, [selectedQuestion])
 
   return (
     

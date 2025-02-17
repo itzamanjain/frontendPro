@@ -7,6 +7,9 @@ import { HeroContent } from "@/components/component/Landing/Herocontent";
 import { PricingBasic } from "@/components/component/Landing/Pricing";
 import { TestimonialsDemo } from "@/components/component/Landing/Testomonial";
 import { Trusted } from "@/components/component/Landing/TrustedBy";
+import { CardFooter } from "@/components/component/ui/card";
+import Footer from '@/components/component/Landing/Footer'
+
 export default function Home() {
 
   return (
@@ -16,6 +19,7 @@ export default function Home() {
       <Bento/>
       <TestimonialsDemo/>
       <PricingBasic/>
+      <Footer />
     </div>
   )
 }

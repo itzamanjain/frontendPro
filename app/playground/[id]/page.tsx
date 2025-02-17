@@ -60,7 +60,7 @@ const Page = () => {
     <div className="flex justify-center relative">
       <div 
         className={`transition-all   duration-300 ease-in-out ${
-          isCollapsed ? 'w-0 overflow-hidden' : 'w-2/5'
+          isCollapsed ? 'w-0 overflow-hidden' : 'w-[32%]'
         }`}
       >
         <QuestionCard question={question} />

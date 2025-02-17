@@ -80,7 +80,7 @@ const QuestionCard = ({ question }: { question: Question }) => {
 
   return (
     <Card className="h-[100vh] bg-[#262626] border-none text-gray-50 rounded-none flex flex-col">
-      <CardHeader className="p-4 border-b border-gray-700">
+      <CardHeader className="p-4 ml-4 border-b border-gray-700">
         <div className="flex justify-between items-start">
           <div className="space-y-2">
             <div className="flex items-center gap-2">

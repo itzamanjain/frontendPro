@@ -58,29 +58,24 @@ const Page = () => {
 
   return (
     <div className="flex justify-center relative">
-      <div 
-        className={`transition-all   duration-300 ease-in-out ${
-          isCollapsed ? 'w-0 overflow-hidden' : 'w-[32%]'
-        }`}
-      >
-        <QuestionCard question={question} />
-      </div>
-      
-      
-
-      <div 
-        className={`transition-all duration-300 ease-in-out ${
-          isCollapsed ? 'w-full' : 'w-3/5'
-        } min-h-screen h-full flex-grow`}
-      > 
       <Button
-        variant="outline"
+        variant="ghost"
         size="icon"
-        className="absolute left-2/5 top-4 z-10 transform -translate-x-1/2"
+        className="absolute left-0 top-4 z-10 h-12 w-6 rounded-r-lg bg-[#f3eeee] hover:bg-[#dfdcdc] border-none text-black"
         onClick={() => setIsCollapsed(!isCollapsed)}
       >
-        {isCollapsed ? <ChevronRight className="h-8 w-8" /> : <ChevronLeft className="h-8 w-8" />}
+        {isCollapsed ? <ChevronRight className="h-4 w-4" /> : <ChevronLeft className="h-4 w-4" />}
       </Button>
+
+      <div className={`transition-all duration-300 ease-in-out ${isCollapsed ? "w-0 overflow-hidden" : "w-[32%]"}`}>
+        <QuestionCard question={question} />
+      </div>
+
+      <div
+        className={`transition-all duration-300 ease-in-out ${
+          isCollapsed ? "w-full" : "w-[68%]"
+        } min-h-screen h-full flex-grow bg-[#f8f6f6]`}
+      >
         <Playground selectedQuestion={question} />
       </div>
     </div>

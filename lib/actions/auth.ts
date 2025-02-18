@@ -7,5 +7,7 @@ export const login = async () => {
 };
 
 export const logout = async () => {
+  console.log("kar rha hu ruk");
+  
   await signOut({ redirectTo: "/" });
 };

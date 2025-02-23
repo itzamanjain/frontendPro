@@ -21,7 +21,7 @@ export default function Footer() {
               </span>
             </h1>
             <div className="mt-2">
-              <Link href="https://x.com/compose/tweet?text=I%27ve%20been%20using%20%23SpectrumUI%20 share%20yourtought%20%40arihantCodes%20">
+              <Link href="https://x.com/">
                 <Button variant="secondary">
                   Share Your Thoughts On
                   <Twitter className="icon-class ml-1 w-3.5 " />
@@ -29,7 +29,7 @@ export default function Footer() {
               </Link>
             </div>
             <p className="text-sm text-gray-400 mt-5">
-              © {new Date().getFullYear()} Spectrum UI. All rights reserved.
+              © {new Date().getFullYear()} Codefront Lab | All rights reserved
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -70,7 +70,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="https://blog.arihant.us/"
+                    href="https://itzaman.site/"
                     className="text-gray-400 dark:hover:text-white"
                   >
                     Blog
@@ -83,7 +83,7 @@ export default function Footer() {
               <ul className="space-y-2">
                 <li>
                   <Link
-                    href="https://github.com/arihantcodes/spectrum-ui"
+                    href="https://github.com/itzamanjain/"
                     className="text-gray-400 dark:hover:text-white"
                   >
                     Github
@@ -91,7 +91,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="https://www.linkedin.com/in/arihantcodes"
+                    href="https://www.linkedin.com/in/itzamanjain"
                     className="text-gray-400 dark:hover:text-white"
                   >
                     LinkedIn
@@ -99,7 +99,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="https://x.com/arihantcodes"
+                    href="https://x.com/"
                     className="text-gray-400 dark:hover:text-white"
                   >
                     X

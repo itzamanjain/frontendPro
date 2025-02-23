@@ -42,11 +42,11 @@ const Navbar = () => {
                         </Link>
                     </div>
                 </div>
-                <div className='text-white'>
+                {/* <div className='text-white'>
                 {
                     status === 'authenticated' && session ? <SignOutButton /> : <SignInButton />
                 }
-                </div>
+                </div> */}
             </div>
         </nav>
     )

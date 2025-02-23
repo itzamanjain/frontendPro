@@ -69,22 +69,6 @@ const QuestionCard = ({ question }: { question: Question }) => {
     setTimerRunning(!timerRunning);
   };
 
-  const handleCompleteQuestion = async () => {
-    const email = data?.user?.email
-    const res2  = await axios.post('/api/getUserIdByEmail',{email}) ;
-    console.log("user id aaaaa gyi ",res2?.data.userId);
-    const myUserId = res2?.data.userId
-    
-
-    const res = await axios.post('/api/completeQuestion',{
-      id: 1,
-      userId: myUserId
-    })
-
-    console.log("resssssssssss",res);
-    
-  }
-
   const formatTime = (seconds: number) => {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
@@ -115,10 +99,10 @@ const QuestionCard = ({ question }: { question: Question }) => {
                 {question.difficulty}
               </Badge>
               <div className="flex items-center gap-4 text-sm text-gray-400">
-                <Button onClick={handleCompleteQuestion} className="flex items-center gap-1">
+                <div className="flex bg-none items-center gap-1">
                   <ThumbsUp className="w-4 h-4" />
                   <span>{question.upvotes || "39"}</span>
-                </Button>
+                </div>
                 <div className="flex items-center gap-1">
                   <MessageSquare className="w-4 h-4" />
                   <span>{question.comments || "55"}</span>

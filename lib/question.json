@@ -1,0 +1,24 @@
+[
+    {
+      "id": "1",
+      "title": "Create a responsive navbar",
+      "successRate": 84,
+      "sampleUrl": "https://i.ytimg.com/vi/23BHwAFIZmk/maxresdefault.jpg",
+      "content": "Create a responsive navbar\n\nYour task is to create a responsive navigation bar using HTML, CSS, and JavaScript.\n\nRequirements:\n1. The navbar should have a logo on the left side.\n2. It should contain at least 4 navigation items.\n3. On desktop, all items should be visible in a horizontal layout.\n4. On mobile (screen width < 768px):\n   - The navigation items should be hidden initially.\n   - A hamburger menu icon should appear.\n   - Clicking the hamburger icon should reveal the navigation items in a vertical layout.\n\nBonus:\n- Add a smooth animation for the mobile menu toggle.\n- Implement a dropdown for one of the navigation items.\n\nGood luck!",
+      "tags": ["html", "css", "js"],
+      "difficulty": "Medium",
+      "expectedTime": "20 min",
+      "submissions": 461
+    },
+    {
+      "id": "2",
+      "title": "Implement a modal dialog",
+      "difficulty": "Easy",
+      "successRate": 49,
+      "sampleUrl": "https://i.ytimg.com/vi/0YCKpkEYp-c/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCLroXfmn2ctSOpWxGD2GRSbHNeZQ",
+      "expectedTime": "15 min",
+      "submissions": 401,
+      "content": "Implement a Modal Dialog\n\nCreate a modal dialog component using HTML, CSS, and JavaScript.\n\nRequirements:\n1. The page should have a button that, when clicked, opens the modal.\n2. The modal should appear centered on the screen with a semi-transparent overlay behind it.\n3. The modal should contain a title, some content, and a close button.\n4. Clicking the close button or anywhere outside the modal should close it.\n\nBonus:\n- Add a subtle animation when opening and closing the modal.\n- Make the modal responsive for different screen sizes.\n\nGood luck!",
+      "tags": ["html", "css", "js"]
+    }
+]

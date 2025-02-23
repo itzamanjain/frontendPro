@@ -6,7 +6,8 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { Clock, EyeOff, Eye, PlayCircle, PauseCircle, MessageSquare, ThumbsUp } from "lucide-react";
-
+import axios from 'axios'
+import { useSession } from "next-auth/react";
 interface Question {
   id: string;
   title: string;
@@ -27,6 +28,12 @@ const QuestionCard = ({ question }: { question: Question }) => {
   const [timeLeft, setTimeLeft] = useState(20 * 60); // 20 minutes in seconds
   const [showHints, setShowHints] = useState(false);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
+  
+
+  const {data} = useSession()
+  console.log("user idddddddddddddddddddddddd",data?.user?.id);
+  console.log("user idddddddddddddddddddddddd",data?.user?.email);
+  
 
   useEffect(() => {
     // Cleanup function to clear interval when component unmounts
@@ -62,6 +69,22 @@ const QuestionCard = ({ question }: { question: Question }) => {
     setTimerRunning(!timerRunning);
   };
 
+  const handleCompleteQuestion = async () => {
+    const email = data?.user?.email
+    const res2  = await axios.post('/api/getUserIdByEmail',{email}) ;
+    console.log("user id aaaaa gyi ",res2?.data.userId);
+    const myUserId = res2?.data.userId
+    
+
+    const res = await axios.post('/api/completeQuestion',{
+      id: 1,
+      userId: myUserId
+    })
+
+    console.log("resssssssssss",res);
+    
+  }
+
   const formatTime = (seconds: number) => {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
@@ -92,10 +115,10 @@ const QuestionCard = ({ question }: { question: Question }) => {
                 {question.difficulty}
               </Badge>
               <div className="flex items-center gap-4 text-sm text-gray-400">
-                <div className="flex items-center gap-1">
+                <Button onClick={handleCompleteQuestion} className="flex items-center gap-1">
                   <ThumbsUp className="w-4 h-4" />
                   <span>{question.upvotes || "39"}</span>
-                </div>
+                </Button>
                 <div className="flex items-center gap-1">
                   <MessageSquare className="w-4 h-4" />
                   <span>{question.comments || "55"}</span>

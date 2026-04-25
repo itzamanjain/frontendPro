@@ -8,19 +8,20 @@
 - finish mvp version 
 
 
+https://platform.weekday.works/search?defaultSearchId=52e1abea-ba2e-45da-8848-1b64666de36a&tab=ActiveCandidates
 
 
 [
   {
-    "id": "coep-pune",
-    "startUrl": "https://platform.weekday.works/search?tab=ActiveCandidates&defaultSearchId=f53dc73c-8ca4-41c7-a631-93247f5f4015",
-    "maxPages": 1,
+    "id": "iim-ahem-7",
+    "startUrl": "https://platform.weekday.works/search?defaultSearchId=52e1abea-ba2e-45da-8848-1b64666de36a&tab=ActiveCandidates",
+    "maxPages": 90,
     "completed": false
   },
   {
-    "id": "admi-mumbai",
-    "startUrl": "https://platform.weekday.works/search?tab=ActiveCandidates&defaultSearchId=0864f9f5-e336-4418-8d57-34ac3a2de396",
-    "maxPages": 1,
+    "id": "iim-bang-7",
+    "startUrl": "https://platform.weekday.works/search?defaultSearchId=5b285654-6772-415b-bb98-475d9f40e53f&tab=ActiveCandidates",
+    "maxPages": 160,
     "completed": false
   },
   {
